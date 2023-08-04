@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <circle class="spinner" cx="4" cy="12" r="3" />
+  <circle class="spinner spinner_1" cx="4" cy="12" r="3" />
+  <circle class="spinner spinner_2" cx="4" cy="12" r="3" />
+  <circle class="spinner spinner_3" cx="4" cy="12" r="3" />
+</svg>

@@ -1,0 +1,33 @@
+.filter {
+  @include shadow;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: $reva-white;
+
+  input.button-visible {
+    width: calc(100% - 2rem - 2px);
+
+    &.noresults {
+      color: red;
+    }
+  }
+
+  button {
+    height: 34.4px;
+    width: 2rem;
+    margin-left: 2px;
+    padding: 0.5rem;
+    border: none;
+    color: white;
+    background-color: $reva-dark;
+    font-weight: bold;
+    text-align: center;
+
+    &:hover,
+    &:focus-visible {
+      outline: 2px solid $reva-light;
+      background-color: $reva-light;
+    }
+  }
+}

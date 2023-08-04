@@ -1,0 +1,81 @@
+section {
+  margin-top: 3rem;
+
+  .module {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5rem;
+    border: 0.5rem solid transparent;
+    outline: none;
+    background-color: $reva-white;
+    text-align: left;
+    transition: border ease-in 0.1s, transform ease-in 0.1s, box-shadow ease-in 0.1s,
+      background-color ease-in 0.1s;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+
+    &:hover,
+    &:focus-visible {
+      @include shadow-lg;
+      transform: scale(1.025);
+      background-color: white;
+    }
+
+    &:not(:hover).selected {
+      box-shadow: none;
+    }
+
+    &.selected {
+      border: 0.5rem solid $reva-light;
+    }
+  }
+
+  .title {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    span {
+      font-size: 3rem;
+    }
+
+    .name {
+      flex: 1;
+
+      h1 {
+        display: inline;
+        margin: 0;
+      }
+    }
+  }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    background-color: #f1f9fd;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    shape-rendering: auto;
+  }
+}
+
+ul {
+  padding-left: 4.5rem;
+  list-style: none;
+
+  li + li {
+    margin-top: 0.25rem;
+  }
+
+  .plugin-name {
+    margin-right: 1rem;
+    color: $reva-light;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }
+
+  .plugin-description {
+    font-size: 0.9rem;
+  }
+}

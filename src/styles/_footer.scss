@@ -1,0 +1,17 @@
+footer {
+  grid-area: footer;
+  display: flex;
+  gap: 2rem;
+  margin-top: auto;
+  padding: 1rem;
+  color: grey;
+  background-color: $reva-darker;
+
+  svg {
+    background-color: white;
+  }
+
+  p {
+    max-width: 500px;
+  }
+}

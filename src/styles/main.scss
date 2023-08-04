@@ -1,0 +1,70 @@
+@import './normalize';
+
+@import './defines';
+@import './header';
+@import './topbar';
+@import './module';
+@import './filter';
+@import './footer';
+@import './loading';
+
+body {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  gap: 0rem 2rem;
+  height: 100vh;
+  margin: 0;
+  color: $reva-dark;
+  background-color: $reva-dark;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-feature-settings: 'cv11';
+}
+
+main {
+  grid-area: main;
+  max-width: 1400px;
+  width: 100%;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+a {
+  color: $reva-dark;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    color: $reva-light;
+  }
+
+  img {
+    height: 1.5rem;
+  }
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: white;
+  font-size: 1rem;
+
+  &:hover,
+  &:focus-visible {
+    outline: 2px solid $reva-light;
+  }
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

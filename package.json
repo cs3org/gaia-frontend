@@ -1,0 +1,20 @@
+{
+  "name": "gaia-frontend",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node run.mjs serve",
+    "build": "node run.mjs build"
+  },
+  "devDependencies": {
+    "@svgr/plugin-jsx": "^8.0.1",
+    "cssnano": "^6.0.1",
+    "esbuild": "^0.18.16",
+    "esbuild-plugin-copy": "^2.1.1",
+    "esbuild-plugin-svgr": "^2.0.0",
+    "esbuild-sass-plugin": "^2.10.0",
+    "eslint": "^8.45.0",
+    "postcss": "^8.4.27",
+    "preact": "^10.16.0"
+  }
+}
