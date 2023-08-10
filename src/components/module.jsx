@@ -36,7 +36,7 @@ function Module({ module, downloads, plugins, selected, moduleHandler }) {
       <ul>
         {plugins.map(plugin => (
           <li>
-            <span className="plugin-name">🔌 {plugin.name}</span>
+            <span className="plugin-name">🔌 {plugin.id}</span>
             <span className="plugin-description">{plugin.description}</span>
           </li>
         ))}
