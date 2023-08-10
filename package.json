@@ -7,6 +7,7 @@
     "build": "node run.mjs build"
   },
   "devDependencies": {
+    "@craftamap/esbuild-plugin-html": "^0.6.1",
     "@svgr/plugin-jsx": "^8.0.1",
     "cssnano": "^6.0.1",
     "esbuild": "^0.18.16",

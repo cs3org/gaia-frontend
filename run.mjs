@@ -5,6 +5,7 @@ import { sassPlugin } from 'esbuild-sass-plugin';
 import svgr from 'esbuild-plugin-svgr';
 import { parseArgs } from 'node:util';
 import postcss from 'postcss';
+import { htmlPlugin } from '@craftamap/esbuild-plugin-html';
 
 const options = {
   host: {
@@ -25,10 +26,20 @@ const options = {
     type: 'string',
     short: 'c',
   },
+  outdir: {
+    type: 'string',
+    short: 'o',
+    default: process.env.outdir || './dist',
+  },
+  base: {
+    type: 'string',
+    short: 'b',
+    defaut: process.env.base || '/',
+  },
 };
 
 let {
-  values: { host, port, keyfile, certfile },
+  values: { host, port, keyfile, certfile, outdir, base },
   positionals,
 } = parseArgs({ args: process.argv, options, allowPositionals: true });
 const mode = positionals.length >= 3 ? positionals[2] : null;
@@ -38,7 +49,7 @@ if (!['serve', 'build'].includes(mode)) {
 }
 
 function showUsage() {
-  console.log('serve <host> <port> <keyfile> <certfile> | build');
+  console.log('serve -h <host> -p <port> -k <keyfile> -c <certfile> | build -o <outdir> -b <base>');
   process.exit(0);
 }
 
@@ -75,15 +86,23 @@ const commonOptions = {
     copy({
       assets: [
         {
-          from: ['./src/index.html'],
-          to: ['./'],
-        },
-        {
-          from: ['./src/assets/**/*'],
+          from: ['./src/assets/**/*.{png,woff2,json}'],
           to: ['./assets'],
         },
       ],
       watch: true,
+    }),
+    htmlPlugin({
+      files: [
+        {
+          entryPoints: ['src/app.jsx'],
+          filename: 'index.html',
+          htmlTemplate: './src/index.html.template',
+          define: {
+            base,
+          },
+        },
+      ],
     }),
   ],
 };
@@ -97,7 +116,7 @@ const serveOptions = {
 };
 
 const buildOptions = {
-  outdir: 'dist',
+  outdir,
   minify: true,
   treeShaking: true,
   metafile: true,
@@ -125,5 +144,7 @@ if (mode === 'build') {
     })
   );
 
-  console.log('⚡ Build complete! ⚡');
+  console.log(
+    `\x1b[33;1m⚡\x1b[0m Build complete in '\x1B[32m${outdir}\x1b[0m' \x1b[33;1m⚡\x1b[0m`
+  );
 }
