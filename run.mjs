@@ -101,6 +101,7 @@ const commonOptions = {
           define: {
             base,
           },
+          hash: true,
         },
       ],
     }),
