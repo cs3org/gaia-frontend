@@ -7,7 +7,7 @@ function Header() {
     <header>
       <div>
         <RevaLogo />
-        <h1>Reva Builder</h1>
+        <h1>Gaia</h1>
       </div>
       <div>
         <a href="https://reva.link/">Reva</a>
