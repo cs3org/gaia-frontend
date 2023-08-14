@@ -10,20 +10,37 @@
   background-color: $reva-white;
 
   a {
+    width: 5rem;
+    height: 2rem;
     padding: 0.5rem 1rem;
     color: white;
     background-color: $reva-dark;
+    text-align: center;
     transition: transform ease-in-out 0.1s, background-color ease-in-out 0.1s;
 
-    &:hover,
-    &:focus-visible {
+    &:not(.downloading):hover,
+    &:not(.downloading):focus-visible {
       transform: scale(1.2);
       color: white;
       background-color: $reva-light;
     }
 
-    &:active {
+    &:not(.downloading):active {
       transform: scale(1.1);
+    }
+
+    &.downloading {
+      pointer-events: none;
+      padding: 0;
+      background-color: $reva-ligther;
+
+      svg {
+        margin-top: -1rem;
+      }
+    }
+
+    &.displaynone {
+      display: none;
     }
   }
 
